@@ -33,8 +33,9 @@ public class Client {
         serviceAmbassador = new ServiceAmbassador();
     }
 
-    void useService(int value) {
+    long useService(int value) {
         long result = serviceAmbassador.doRemoteFunction(value);
         System.out.println(result);
+        return result;
     }
 }
