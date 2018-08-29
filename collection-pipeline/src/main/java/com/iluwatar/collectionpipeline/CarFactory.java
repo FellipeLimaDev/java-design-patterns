@@ -37,10 +37,11 @@ public class CarFactory {
    * @return {@link List} of {@link Car}
    */
   public static List<Car> createCars() {
-    return Arrays.asList(new Car("Jeep", "Wrangler", 2011, "Jeep"), new Car("Jeep", "Comanche", 1990, "Jeep"),
-        new Car("Dodge", "Avenger", 2010, "Sedan"),
-        new Car("Buick", "Cascada", 2016, "Convertible"),
-        new Car("Ford", "Focus", 2012, "Sedan"),
-        new Car("Chevrolet", "Geo Metro", 1992, "Convertible"));
+    return Arrays.asList(new Car("Jeep", "Wrangler", 2011, Category.JEEP),
+        new Car("Jeep", "Comanche", 1990, Category.JEEP),
+        new Car("Dodge", "Avenger", 2010, Category.SEDAN),
+        new Car("Buick", "Cascada", 2016, Category.CONVERTIBLE),
+        new Car("Ford", "Focus", 2012, Category.SEDAN),
+        new Car("Chevrolet", "Geo Metro", 1992, Category.CONVERTIBLE));
   }
 }
