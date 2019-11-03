@@ -27,7 +27,7 @@ import java.util.List;
 
 /**
  * Saga representation.
- * Saca consists of chapters.
+ * Saga consists of chapters.
  * Every Chapter is executed a certain service.
  */
 public class Saga {
