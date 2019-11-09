@@ -24,7 +24,6 @@
 package com.iluwatar.saga.orchestration;
 
 
-import com.iluwatar.saga.ServiceDiscoveryService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -38,6 +37,8 @@ import org.slf4j.LoggerFactory;
  *
  * In this approach, there is an orchestrator @see {@link SagaOrchestrator} that manages all the transactions and directs
  * the participant services to execute local transactions based on events.
+ * The major difference with choreography saga is an ability to handle crashed services
+ * (otherwise in choreography services very hard to prevent a saga if one of them has been crashed)
  *
  * @see Saga
  * @see SagaOrchestrator
@@ -49,7 +50,7 @@ public class SagaApplication {
     public static void main(String[] args) {
         SagaOrchestrator sagaOrchestrator = new SagaOrchestrator(newSaga(), serviceDiscovery());
 
-        Saga.Result goodOrder = sagaOrchestrator.execute("god_order");
+        Saga.Result goodOrder = sagaOrchestrator.execute("good_order");
         Saga.Result badOrder = sagaOrchestrator.execute("bad_order");
         Saga.Result crashedOrder = sagaOrchestrator.execute("crashed_order");
 

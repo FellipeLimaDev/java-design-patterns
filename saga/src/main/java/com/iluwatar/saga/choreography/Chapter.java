@@ -22,13 +22,20 @@
  */
 package com.iluwatar.saga.choreography;
 
-import com.iluwatar.saga.orchestration.ChapterResult;
 
 /**
  * Chapter is an interface representing a contract for an external service.
- * @param <K> is type for passing params
- */
-public interface Chapter<K> {
+ * In that case, a service needs to make a decision what to do further
+ * hence the server needs to get all context representing {@link Saga}
+ * */
+public interface Chapter {
+
+    /**
+     * In that case, every method is responsible to make a decision on what to do then
+     * @param saga incoming saga
+     * @return saga result
+     */
+    Saga execute(Saga saga);
 
     /**
      * @return service name.
@@ -37,17 +44,17 @@ public interface Chapter<K> {
 
     /**
      * The operation executed in general case.
-     * @param value incoming value
-     * @return result {@link ChapterResult}
+     * @param saga incoming saga
+     * @return result {@link Saga}
      */
-    ChapterResult<K> process(K value);
+    Saga process(Saga saga);
 
     /**
      * The operation executed in rollback case.
-     * @param value incoming value
-     * @return result {@link ChapterResult}
+     * @param saga incoming saga
+     * @return result {@link Saga}
      */
-    ChapterResult<K> rollback(K value);
+    Saga rollback(Saga saga);
 
 
 }
