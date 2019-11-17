@@ -34,7 +34,9 @@ import org.junit.jupiter.api.Test;
 
 public class MassSelectorTest {
 
-  /** Verify if the mass selector gives the correct results */
+  /**
+   * Verify if the mass selector gives the correct results.
+   */
   @Test
   public void testMass() {
     final Creature lightCreature = mock(Creature.class);
