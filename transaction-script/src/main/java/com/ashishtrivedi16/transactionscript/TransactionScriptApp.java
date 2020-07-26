@@ -1,8 +1,5 @@
 package com.ashishtrivedi16.transactionscript;
 
-import com.ashishtrivedi16.transactionscript.db.CustomException;
-import com.ashishtrivedi16.transactionscript.db.HotelDaoImpl;
-import com.ashishtrivedi16.transactionscript.db.RoomSchemaSql;
 import java.sql.SQLException;
 import java.util.List;
 import javax.sql.DataSource;
@@ -15,7 +12,6 @@ public class TransactionScriptApp {
 
   private static final String H2_DB_URL = "jdbc:h2:~/test";
   private static final Logger LOGGER = LoggerFactory.getLogger(TransactionScriptApp.class);
-  private static final String ALL_ROOMS = "customerDao.getAllRooms(): ";
 
   /**
    * Program entry point.
